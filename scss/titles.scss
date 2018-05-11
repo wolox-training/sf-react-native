@@ -1,4 +1,4 @@
-.title {
+.title-container {
   display: flex;
   align-items: center;
 }
@@ -7,7 +7,7 @@
   height: 90px;
 }
 
-.title-tex {
+.title-text {
   font-family: 'Roboto', sans-serif;
   font-size: 24px;
   position: relative;
