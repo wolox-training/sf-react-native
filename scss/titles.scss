@@ -1,3 +1,15 @@
 .title {
-  width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+
+.title-image {
+  height: 90px;
+  width: 100px;
+}
+
+.title-tex {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
 }
