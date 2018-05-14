@@ -1,0 +1,49 @@
+@import 'colors';
+
+$card-height: 300px;
+$card-width: 200px;
+
+.main-tech-container {
+  position: relative;
+}
+
+.background-tech-container {
+    border: 1px solid;
+    border-color: $green;
+    border-radius: 5px;
+    height: $card-height;
+    left: -10px;
+    position: absolute;
+    top: -10px;
+    width: $card-width;
+    z-index: -1;
+}
+
+.data-tech-container {
+  align-items: center;
+  background-color: $green;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: $card-height;
+  text-align: center;
+  padding: 10px 30px 30px 10px;
+  width: $card-width;
+}
+
+.tech-image {
+  height: 100px;
+}
+
+.tech-name,
+.tech-release,
+.tech-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  padding: 10px 0px;
+}
+
+.tech-release {
+  font-weight: bold;
+  padding-bottom: 15px;
+}
