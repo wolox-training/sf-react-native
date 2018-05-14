@@ -1,10 +1,17 @@
 @import 'colors';
 
-$card-height: 300px;
-$card-width: 200px;
+$card-height: 350px;
+$card-width: 210px;
+
+.techs-container {
+  display: flex;
+  flex-grow: grow;
+  margin-left: 160px;
+}
 
 .main-tech-container {
   position: relative;
+  margin-right: 30px;
 }
 
 .background-tech-container {
