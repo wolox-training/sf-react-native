@@ -1,5 +1,8 @@
 @import 'colors';
 
+$card-height: 300px;
+$card-width: 200px;
+
 .main-tech-container {
   position: relative;
 }
@@ -8,11 +11,11 @@
     border: 1px solid;
     border-color: $green;
     border-radius: 5px;
-    height: 300px;
+    height: $card-height;
     left: -10px;
     position: absolute;
     top: -10px;
-    width: 200px;
+    width: $card-width;
     z-index: -1;
 }
 
@@ -22,10 +25,10 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: $card-height;
   text-align: center;
   padding: 10px 30px 30px 10px;
-  width: 200px;
+  width: $card-width;
 }
 
 .tech-image {
