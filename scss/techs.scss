@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'sizes';
 
 $card-height: 350px;
 $card-width: 210px;
@@ -54,7 +55,7 @@ $card-width: 210px;
 .tech-release,
 .tech-description {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: $text-medium;
   padding: 10px 0px;
 }
 
