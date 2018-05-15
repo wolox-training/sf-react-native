@@ -1,0 +1,29 @@
+@import 'colors';
+
+.footer {
+  align-items: center;
+  background-color: $blue;
+  flex-direction: column;
+  display: flex;
+  height: 170px;
+  justify-content: center;
+  margin-top: 100px;
+  width: 100%;
+}
+
+.footer-image {
+  padding: 15px 0px;
+}
+
+.legal-text,
+.footer-text {
+  color: $white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+}
+
+.legal-text {
+  align-self: flex-end;
+  font-size: 12px;
+  padding-right: 30px;
+}
