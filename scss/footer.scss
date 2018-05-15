@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'sizes';
 
 .footer {
   align-items: center;
@@ -19,11 +20,14 @@
 .footer-text {
   color: $white;
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+}
+
+.footer-text {
+  font-size: $text-big;
 }
 
 .legal-text {
   align-self: flex-end;
-  font-size: 12px;
+  font-size: $text-small;
   padding-right: 30px;
 }
