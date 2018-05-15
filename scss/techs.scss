@@ -10,8 +10,9 @@ $card-width: 210px;
 }
 
 .main-tech-container {
-  position: relative;
   margin-right: 30px;
+  position: relative;
+
   &:hover {
     .background-tech-container {
       left: 10px;
@@ -28,8 +29,7 @@ $card-width: 210px;
     left: -10px;
     position: absolute;
     top: -10px;
-    transition: left 0.5s,
-                top 0.5s;
+    transition: left 0.5s, top 0.5s;
     width: $card-width;
     z-index: -1;
 }
