@@ -5,13 +5,16 @@ $card-height: 350px;
 $card-width: 210px;
 
 .techs-container {
+  align-items: center;
   display: grid;
+  grid-column-gap: 20px;
   grid-template: repeat(2, $card-height) / repeat(3, $card-width);
-  margin-left: 160px;
+  justify-content: center;
 }
 
-.main-tech-container {
-
+.first-tech-container {
+  border-right: 2px $green solid;
+  grid-row: 1 / span 2;
 }
 
 .data-tech-container {
