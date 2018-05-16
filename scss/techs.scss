@@ -1,30 +1,21 @@
 @import 'colors';
 @import 'sizes';
 
-$card-height: 350px;
 $card-width: 210px;
 
 .techs-container {
   align-items: center;
   display: grid;
-  grid-column-gap: 20px;
-  grid-template: repeat(2, $card-height) / repeat(3, $card-width);
   justify-content: center;
-}
-
-.first-tech-container {
-  border-right: 2px $green solid;
-  grid-row: 1 / span 2;
 }
 
 .data-tech-container {
   align-items: center;
-  border-radius: 5px;
+  border-bottom: 2px $green solid;
   display: flex;
   flex-direction: column;
-  height: $card-height;
   text-align: center;
-  padding: 10px 30px 30px 10px;
+  padding: 20px 0px 10px;
   width: $card-width;
 }
 
@@ -43,4 +34,21 @@ $card-width: 210px;
 .tech-release {
   font-weight: bold;
   padding-bottom: 15px;
+}
+
+@media only screen and (min-width: $screen-breakpoint) {
+  .techs-container {
+    grid-column-gap: 20px;
+    grid-template: repeat(2, 1fr) / repeat(3, $card-width);
+  }
+
+  .first-tech-container {
+    border-right: 2px $green solid;
+    grid-row: 1 / span 2;
+  }
+
+  .data-tech-container {
+    border-bottom: $white;
+    padding: 10px 30px 30px 10px;
+  }
 }

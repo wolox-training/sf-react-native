@@ -23,3 +23,13 @@
   font-family: 'Roboto', sans-serif;
   font-size: $text-medium;
 }
+
+@media only screen and (max-width: $screen-breakpoint) {
+  .nav-text {
+    display: none;
+  }
+
+  .nav-image {
+    height: 35px;
+  }
+}
