@@ -1,7 +1,9 @@
+@import 'sizes';
+
 .title-container {
   align-items: center;
   display: flex;
-  margin: 60px 0px 40px 80px;
+  margin: 120px 0px 40px 80px;
 }
 
 .title-image {
@@ -10,7 +12,7 @@
 
 .title-text {
   font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-size: $text-big;
   left: -18px;
   position: relative;
   top: 2px;
