@@ -4,4 +4,9 @@
 @import 'techs';
 @import 'colors';
 @import 'navbar';
+@import 'footer';
 @import 'sizes';
+
+.main-page-container {
+  padding: $navbar-height 0 100px 0;
+}
