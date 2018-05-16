@@ -8,6 +8,5 @@
 @import 'sizes';
 
 .main-page-container {
-  padding-top: $navbar-height;
-  padding-bottom: 100px;
+  padding: $navbar-height 0 100px 0;
 }
