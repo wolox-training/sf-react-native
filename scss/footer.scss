@@ -30,3 +30,9 @@
   font-size: $text-small;
   padding-right: 30px;
 }
+
+@media only screen and (max-width: $screen-breakpoint) {
+  .legal-text {
+    align-self: center;
+  }
+}
