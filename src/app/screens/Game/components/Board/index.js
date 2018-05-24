@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import Square from '../Square/index.js';
 
@@ -14,7 +14,7 @@ class Board extends Component {
     const status = 'Next player: X';
 
     return (
-      <div>
+      <Fragment>
         <div className="status">{status}</div>
         <div className="boardRow">
           {this.renderSquare(0)}
@@ -31,7 +31,7 @@ class Board extends Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
