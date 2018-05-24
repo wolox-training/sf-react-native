@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import style from './styles.css';
+import './styles.css';
 
 class Square extends Component {
   render() {
-    return <button className={style.square}>{/* TODO */}</button>;
+    return <button className="square">{/* TODO */}</button>;
   }
 }
 
