@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Square from '../Square/index.js';
 
-import style from './styles.css';
+import './styles.css';
 
 class Board extends Component {
   // eslint-disable-next-line
   renderSquare(i) {
-    return <Square />;
+    return <Square value={this.props.squares[i]} onClick={this.props.onClick} index={i} />;
   }
 
   render() {
-    const status = 'Next player: X';
-
     return (
       <div>
-        <div className={style.status}>{status}</div>
-        <div className={style.boardRow}>
+        <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
         </div>
-        <div className={style.boardRow}>
+        <div className="board-row">
           {this.renderSquare(3)}
           {this.renderSquare(4)}
           {this.renderSquare(5)}
         </div>
-        <div className={style.boardRow}>
+        <div className="board-row">
           {this.renderSquare(6)}
           {this.renderSquare(7)}
           {this.renderSquare(8)}
@@ -35,5 +33,10 @@ class Board extends Component {
     );
   }
 }
+
+Board.propTypes = {
+  squares: PropTypes.arrayOf(PropTypes.node),
+  onClick: PropTypes.func
+};
 
 export default Board;

@@ -1,11 +1,26 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
-import style from './styles.css';
+import './styles.css';
 
-class Square extends Component {
+class Square extends PureComponent {
+  handleClick = () => {
+    this.props.onClick(this.props.index);
+  };
+
   render() {
-    return <button className={style.square}>{/* TODO */}</button>;
+    return (
+      <button className="square" onClick={this.handleClick}>
+        {this.props.value}
+      </button>
+    );
   }
 }
+
+Square.propTypes = {
+  value: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired
+};
 
 export default Square;
