@@ -8,7 +8,7 @@ import './styles.css';
 class Board extends Component {
   // eslint-disable-next-line
   renderSquare(i) {
-    return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
+    return <Square value={this.props.squares[i]} onClick={this.props.onClick} index={i} />;
   }
 
   render() {
@@ -35,7 +35,7 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  squares: PropTypes.arrayOf(Square),
+  squares: PropTypes.arrayOf(PropTypes.node),
   onClick: PropTypes.func
 };
 
