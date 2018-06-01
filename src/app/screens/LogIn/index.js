@@ -1,21 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { Values } from 'redux-form-website-template';
+import React, { PureComponent } from 'react';
 
-import store from './store.js';
-import showResults from './showResults.js';
-import LogInForm from './layouts.js';
+import LogInForm from './layout.js';
 
-const rootEl = document.getElementById('root');
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-ReactDOM.render(
-  <Provider store={store}>
-    <div style={{ padding: 15 }}>
-      <h2>Log In</h2>
-      <LogInForm onSubmit={showResults} />
-      <Values form="logIn" />
-    </div>
-  </Provider>,
-  rootEl
-);
+async function showResults(values) {
+  await sleep(500); // simulate server latency
+  window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+}
+
+class LogIn extends PureComponent {
+  render() {
+    return (
+      <div style={{ padding: 15 }}>
+        <h2>Log In</h2>
+        <LogInForm onSubmit={showResults} />
+      </div>
+    );
+  }
+}
+
+export default LogIn;
