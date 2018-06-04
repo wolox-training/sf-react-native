@@ -1,0 +1,73 @@
+.logInPage {
+  display: flex;
+  flex-flow: column;
+  font-family: Helvetica Neue,Helvetica,Segoe UI,Arial,freesans,sans-serif;
+  font-size: 14px;
+  line-height: 1.4em;
+  padding: 15px;
+}
+
+.logInFormTitle {
+  align-self: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2em;
+  margin: 20px 0;
+}
+
+.formStyle {
+  border: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0;
+  max-width: inherit;
+  outline: 0;
+  padding: 0;
+}
+
+.formDiv {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin: 10px 5px;
+}
+
+.formLabel {
+  font-weight: 700;
+  margin-right: 10px;
+  min-width: 100px;
+  padding: 6px 9px;
+  text-align: right;
+}
+
+.formFieldDiv {
+  display: flex;
+  flex-flow: column;
+  font-size: 16px;
+  max-width: 500px;
+  padding: 5px 8px;
+  position: relative;
+}
+
+.formFieldError {
+  border: none;
+  font-weight: 500;
+  color: #700;
+}
+
+button {
+  background-image: linear-gradient(#4f93ce,#285f8f);
+  border: 1px solid #285f8f;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px 15px;
+  white-space: nowrap;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  opacity: .6;
+}

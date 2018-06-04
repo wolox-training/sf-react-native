@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import LogInForm from './layout.js';
+import './styles.css';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -12,8 +13,8 @@ async function showResults(values) {
 class LogIn extends PureComponent {
   render() {
     return (
-      <div style={{ padding: 15 }}>
-        <h2>Log In</h2>
+      <div className="logInPage">
+        <h2 className="logInFormTitle">Tic-Tac-Toe Log In</h2>
         <LogInForm onSubmit={showResults} />
       </div>
     );

@@ -1,44 +1,42 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
+import './styles.css';
 
-const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+// Validations
+const required = value => (value ? undefined : 'Required Field');
+const passwordLength = value => (value && value.length < 8 ? 'Must be at least 8 chars' : undefined);
+const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+const email = value => (value && !emailRegex.test(value) ? 'Invalid email address' : undefined);
+
+// eslint-disable-next-line
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+  <div className="formDiv">
+    <label className="formLabel" htmlFor="form">
+      {label}
+    </label>
+    <div className="formFieldDiv">
+      <input {...input} placeholder={label} type={type} />
+      {touched && error && <span className="formFieldError">{error}</span>}
+    </div>
+  </div>
+);
 
 const LogInForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { error, handleSubmit, pristine, reset, submitting } = props;
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email</label>
-        <div>
-          <Field
-            name="email"
-            component="input"
-            type="email"
-            placeholder="Email"
-            validate={[
-              val => (val ? undefined : 'Email field is required'),
-              val => (val && emailRegex.test(val) ? undefined : 'Email format is invalid')
-            ]}
-          />
-        </div>
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <div>
-          <Field
-            name="password"
-            component="input"
-            type="password"
-            placeholder="Password"
-            validate={[
-              val => (val ? undefined : 'Password field is required'),
-              val => (val && val.length >= 8 ? undefined : 'Password must be at least 8 characters long')
-            ]}
-          />
-        </div>
-      </div>
-      <div>
-        <button type="submit" disabled={pristine || submitting}>
+    <form className="formStyle" onSubmit={handleSubmit}>
+      <Field name="email" type="email" component={renderField} label="Email" validate={[required, email]} />
+      <Field
+        name="password"
+        type="password"
+        component={renderField}
+        label="Password"
+        validate={[required, passwordLength]}
+      />
+      {error && <span className="formFieldError">{error}</span>}
+      <div className="formDiv">
+        <button type="submit" disabled={submitting}>
           Submit
         </button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
@@ -47,6 +45,14 @@ const LogInForm = props => {
       </div>
     </form>
   );
+};
+
+LogInForm.propTypes = {
+  error: PropTypes.node,
+  handleSubmit: PropTypes.func.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  reset: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired
 };
 
 export default reduxForm({
