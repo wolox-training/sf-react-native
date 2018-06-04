@@ -23,7 +23,7 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 );
 
 const LogInForm = props => {
-  const { error, handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form className="formStyle" onSubmit={handleSubmit}>
       <Field name="email" type="email" component={renderField} label="Email" validate={[required, email]} />
@@ -34,7 +34,6 @@ const LogInForm = props => {
         label="Password"
         validate={[required, passwordLength]}
       />
-      {error && <span className="formFieldError">{error}</span>}
       <div className="formDiv">
         <button type="submit" disabled={submitting}>
           Submit
@@ -48,7 +47,6 @@ const LogInForm = props => {
 };
 
 LogInForm.propTypes = {
-  error: PropTypes.node,
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,

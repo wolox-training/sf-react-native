@@ -1,24 +1,28 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { actionCreators } from '../../../redux/logIn/actions';
 
 import LogInForm from './layout.js';
 import './styles.css';
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+class LogIn extends Component {
+  handleSubmit = values => {
+    this.props.dispatch(actionCreators.authUser(values.email, values.password));
+  };
 
-async function showResults(values) {
-  await sleep(500); // simulate server latency
-  window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
-}
-
-class LogIn extends PureComponent {
   render() {
     return (
       <div className="logInPage">
         <h2 className="logInFormTitle">Tic-Tac-Toe Log In</h2>
-        <LogInForm onSubmit={showResults} />
+        <LogInForm onSubmit={this.handleSubmit} />
       </div>
     );
   }
 }
 
-export default LogIn;
+const mapStateToProps = state => ({
+  error: state.auth.err
+});
+
+export default connect(mapStateToProps)(LogIn);
