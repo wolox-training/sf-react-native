@@ -55,7 +55,7 @@
   color: #700;
 }
 
-button {
+.formButton {
   background-image: linear-gradient(#4f93ce,#285f8f);
   border: 1px solid #285f8f;
   border-radius: 5px;
@@ -67,7 +67,7 @@ button {
   white-space: nowrap;
 }
 
-button[disabled] {
+.formButton[disabled] {
   cursor: not-allowed;
   opacity: .6;
 }

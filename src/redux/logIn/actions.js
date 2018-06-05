@@ -1,3 +1,5 @@
+import { push } from 'react-router-redux';
+
 import UserService from '../../services/UserService.js';
 
 export const actions = {
@@ -28,6 +30,7 @@ export const actionCreators = {
         const authUserToken = authUser.token;
         localStorage.setItem('token', authUserToken);
         UserService.setHeader(authUser.token);
+        dispatch(push('/game'));
         dispatch({
           type: actions.AUTH_USER_SUCCESS,
           payload: { currentUser: authUser }

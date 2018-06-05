@@ -35,10 +35,10 @@ const LogInForm = props => {
         validate={[required, passwordLength]}
       />
       <div className="formDiv">
-        <button type="submit" disabled={submitting}>
+        <button className="formButton" type="submit" disabled={submitting}>
           Submit
         </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
+        <button className="formButton" type="button" disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </button>
       </div>
