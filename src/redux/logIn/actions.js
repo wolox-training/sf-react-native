@@ -18,9 +18,11 @@ export const actionCreators = {
     if (response.ok) {
       const authUser = response.data[0];
       if (authUser === undefined) {
+        const error = 'Wrong email or password, please try again.';
+        window.alert(`Login error:\n${error}`);
         dispatch({
           type: actions.AUTH_USER_FAILURE,
-          payload: { err: 'Wrong email or password, please try again.' }
+          payload: { err: error }
         });
       } else {
         const authUserToken = authUser.token;
