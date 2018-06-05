@@ -9,7 +9,7 @@ export const actions = {
 export const actionCreators = {
   // Es una función que devuelve una función.
   // El middleware va a ver que cuando se haga
-  // dispatch(actionCreators.getUsers());
+  // dispatch(actionCreators.authUser());
   // va a encontrar que el resultado de eso es una función y
   // lo va a invocar con `dispatch` y `getState`.
   authUser: (email, pass) => async dispatch => {
@@ -17,13 +17,20 @@ export const actionCreators = {
     const response = await UserService.authUser(email, pass);
     if (response.ok) {
       const authUser = response.data[0];
-      const authUserToken = authUser.token;
-      localStorage.setItem('token', authUserToken);
-      UserService.setHeader(authUser.token);
-      dispatch({
-        type: actions.AUTH_USER_SUCCESS,
-        payload: { currentUser: authUser }
-      });
+      if (authUser === undefined) {
+        dispatch({
+          type: actions.AUTH_USER_FAILURE,
+          payload: { err: 'Wrong email or password, please try again.' }
+        });
+      } else {
+        const authUserToken = authUser.token;
+        localStorage.setItem('token', authUserToken);
+        UserService.setHeader(authUser.token);
+        dispatch({
+          type: actions.AUTH_USER_SUCCESS,
+          payload: { currentUser: authUser }
+        });
+      }
     } else {
       dispatch({
         type: actions.AUTH_USER_FAILURE,
