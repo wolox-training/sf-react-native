@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Router, Route, Redirect, Switch, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './scss/index.scss';
@@ -15,7 +15,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={props =>
       localStorage.getItem('token') ? (
-        <Component {...props} />
+        <Fragment>
+          <TopBar />
+          <hr />
+          <Component {...props} />
+        </Fragment>
       ) : (
         <Redirect
           to={{
@@ -33,6 +37,22 @@ PrivateRoute.propTypes = {
   location: PropTypes.string
 };
 
+const TopBar = () => (
+  <div className="topBar">
+    <Link className="gameLink" to="/game">
+      Game
+    </Link>
+    <Link className="profileLink" to="/profile">
+      Profile
+    </Link>
+    <Link className="signoutLink" to="/signout">
+      SignOut
+    </Link>
+  </div>
+);
+
+const Empty = <div>Empty Page</div>;
+
 ReactDOM.render(
   <Provider store={store}>
     <Fragment>
@@ -41,6 +61,14 @@ ReactDOM.render(
           <Route exact path="/" render={() => <Redirect to="/login" />} />
           <Route path="/login" component={LogIn} />
           <PrivateRoute path="/game" component={Game} />
+          <PrivateRoute path="/profile" component={Empty} />
+          <Route
+            path="/signout"
+            render={() => {
+              localStorage.removeItem('token');
+              return <Redirect to="/login" />;
+            }}
+          />
         </Switch>
       </Router>
     </Fragment>
