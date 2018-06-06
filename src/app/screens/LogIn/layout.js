@@ -3,43 +3,35 @@ import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-// Validations
-const required = value => (value ? undefined : 'Required Field');
-const passwordLength = value => (value && value.length < 8 ? 'Must be at least 8 chars' : undefined);
-const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-const email = value => (value && !emailRegex.test(value) ? 'Invalid email address' : undefined);
+import { required, passwordLength, email } from '../../../utils/validations.js';
 
-// eslint-disable-next-line
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div className="formDiv">
-    <label className="formLabel" htmlFor="form">
-      {label}
-    </label>
-    <div className="formFieldDiv">
-      <input {...input} placeholder={label} type={type} />
-      {touched && error && <span className="formFieldError">{error}</span>}
-    </div>
-  </div>
-);
+import { strings } from './strings.js';
+import { renderField } from './components/renderField.js';
 
 const LogInForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form className="formStyle" onSubmit={handleSubmit}>
-      <Field name="email" type="email" component={renderField} label="Email" validate={[required, email]} />
+      <Field
+        name="email"
+        type="email"
+        component={renderField}
+        label={strings.emailLabel}
+        validate={[required, email]}
+      />
       <Field
         name="password"
         type="password"
         component={renderField}
-        label="Password"
+        label={strings.passwordLabel}
         validate={[required, passwordLength]}
       />
       <div className="formDiv">
         <button className="formButton" type="submit" disabled={submitting}>
-          Submit
+          {strings.submitButton}
         </button>
         <button className="formButton" type="button" disabled={pristine || submitting} onClick={reset}>
-          Clear Values
+          {strings.clearButton}
         </button>
       </div>
     </form>

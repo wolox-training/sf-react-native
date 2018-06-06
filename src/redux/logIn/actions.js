@@ -2,6 +2,8 @@ import { push } from 'react-router-redux';
 
 import UserService from '../../services/UserService.js';
 
+import { strings } from './strings';
+
 export const actions = {
   AUTH_USERS: 'AUTH_USERS',
   AUTH_USER_SUCCESS: 'AUTH_USER_SUCCESS',
@@ -9,22 +11,16 @@ export const actions = {
 };
 
 export const actionCreators = {
-  // Es una función que devuelve una función.
-  // El middleware va a ver que cuando se haga
-  // dispatch(actionCreators.authUser());
-  // va a encontrar que el resultado de eso es una función y
-  // lo va a invocar con `dispatch` y `getState`.
   authUser: (email, pass) => async dispatch => {
     dispatch({ type: actions.AUTH_USERS });
     const response = await UserService.authUser(email, pass);
     if (response.ok) {
       const authUser = response.data[0];
       if (authUser === undefined) {
-        const error = 'Wrong email or password, please try again.';
-        window.alert(`Login error:\n${error}`);
+        window.alert(strings.logInError + strings.errorMsg);
         dispatch({
           type: actions.AUTH_USER_FAILURE,
-          payload: { err: error }
+          payload: { err: strings.errorMsg }
         });
       } else {
         const authUserToken = authUser.token;

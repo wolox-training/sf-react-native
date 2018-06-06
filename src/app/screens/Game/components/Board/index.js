@@ -6,7 +6,6 @@ import Square from '../Square/index.js';
 import './styles.css';
 
 class Board extends Component {
-  // eslint-disable-next-line
   renderSquare(i) {
     return <Square value={this.props.squares[i]} onClick={this.props.onClick} index={i} />;
   }

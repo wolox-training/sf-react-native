@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { actionCreators } from '../../../redux/logIn/actions';
 
+import { strings } from './strings';
 import LogInForm from './layout.js';
 import './styles.css';
 
@@ -14,7 +15,7 @@ class LogIn extends Component {
   render() {
     return (
       <div className="logInPage">
-        <h2 className="logInFormTitle">Tic-Tac-Toe Log In</h2>
+        <h2 className="logInFormTitle">{strings.ticTacToeTitle}</h2>
         <LogInForm onSubmit={this.handleSubmit} />
       </div>
     );
