@@ -24,8 +24,9 @@ export const actionCreators = {
         });
       } else {
         const authUserToken = authUser.token;
+        localStorage.setItem('userID', authUser.id);
         localStorage.setItem('token', authUserToken);
-        UserService.setHeader(authUser.token);
+        UserService.setHeader(authUserToken);
         dispatch(push('/game'));
         dispatch({
           type: actions.AUTH_USER_SUCCESS,

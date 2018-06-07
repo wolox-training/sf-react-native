@@ -7,9 +7,10 @@ export const actions = {
 };
 
 export const actionCreators = {
-  getUserProfile: id => async dispatch => {
+  getUserProfile: () => async dispatch => {
     dispatch({ type: actions.GET_USER_PROFILE });
-    const response = await ProfileService.getUserProfile(id);
+    const userID = localStorage.getItem('userID');
+    const response = await ProfileService.getUserProfile(userID);
     if (response.ok) {
       const userProfile = response.data;
       dispatch({

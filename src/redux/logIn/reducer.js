@@ -1,6 +1,6 @@
 import { actions } from './actions.js';
 
-const defaultState = { loading: false, currentUser: null, err: null, userProfile: null };
+const defaultState = { loading: false, currentUser: null, err: null};
 
 export function reducer(state = defaultState, action) {
   switch (action.type) {
