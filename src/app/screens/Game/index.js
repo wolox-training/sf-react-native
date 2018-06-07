@@ -58,7 +58,7 @@ class Game extends Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ? strings.goToMove + move : strings.goToGameStart;
+      const desc = move ? `${strings.goToMove}${move}` : strings.goToGameStart;
       return (
         // eslint-disable-next-line
         <li key={move}>
@@ -69,9 +69,9 @@ class Game extends Component {
 
     let status;
     if (winner) {
-      status = strings.winner + winner;
+      status = `${strings.winner}${winner}`;
     } else {
-      status = strings.nextPlayer + (this.state.xIsNext ? 'X' : 'O');
+      status = `${strings.nextPlayer}${this.state.xIsNext ? 'X' : 'O'}`;
     }
 
     return (

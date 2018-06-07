@@ -17,7 +17,7 @@ export const actionCreators = {
     if (response.ok) {
       const authUser = response.data[0];
       if (authUser === undefined) {
-        window.alert(strings.logInError + strings.errorMsg);
+        window.alert(`${strings.logInError}${strings.errorMsg}`);
         dispatch({
           type: actions.AUTH_USER_FAILURE,
           payload: { err: strings.errorMsg }
