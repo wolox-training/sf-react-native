@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { strings } from './strings';
 import Board from './components/Board/index.js';
 import './styles.css';
 
@@ -57,7 +58,7 @@ class Game extends Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ? `Go to move #${move}` : 'Go to game start';
+      const desc = move ? `${strings.goToMove}${move}` : strings.goToGameStart;
       return (
         // eslint-disable-next-line
         <li key={move}>
@@ -68,9 +69,9 @@ class Game extends Component {
 
     let status;
     if (winner) {
-      status = `Winner: ${winner}`;
+      status = `${strings.winner}${winner}`;
     } else {
-      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+      status = `${strings.nextPlayer}${this.state.xIsNext ? 'X' : 'O'}`;
     }
 
     return (
