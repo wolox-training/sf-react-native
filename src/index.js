@@ -17,7 +17,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       localStorage.getItem('token') ? (
         <Fragment>
           <TopBar />
-          <hr />
           <Component {...props} />
         </Fragment>
       ) : (
@@ -51,27 +50,25 @@ const TopBar = () => (
   </div>
 );
 
-const Empty = <div>Empty Page</div>;
+const Empty = () => <div>Empty Page</div>;
 
 ReactDOM.render(
   <Provider store={store}>
-    <Fragment>
-      <Router history={history}>
-        <Switch>
-          <Route exact path="/" render={() => <Redirect to="/login" />} />
-          <Route path="/login" component={LogIn} />
-          <PrivateRoute path="/game" component={Game} />
-          <PrivateRoute path="/profile" component={Empty} />
-          <Route
-            path="/signout"
-            render={() => {
-              localStorage.removeItem('token');
-              return <Redirect to="/login" />;
-            }}
-          />
-        </Switch>
-      </Router>
-    </Fragment>
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/" render={() => <Redirect to="/login" />} />
+        <Route path="/login" component={LogIn} />
+        <PrivateRoute path="/game" component={Game} />
+        <PrivateRoute path="/profile" component={Empty} />
+        <Route
+          path="/signout"
+          render={() => {
+            localStorage.removeItem('token');
+            return <Redirect to="/login" />;
+          }}
+        />
+      </Switch>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
