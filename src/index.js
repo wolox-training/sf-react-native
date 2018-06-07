@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, Redirect, Switch, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { strings } from './strings';
 import './scss/index.scss';
 import store, { history } from './redux/store.js';
 import registerServiceWorker from './registerServiceWorker';
@@ -39,13 +40,13 @@ PrivateRoute.propTypes = {
 const TopBar = () => (
   <div className="topBar">
     <Link className="gameLink" to="/game">
-      Game
+      {strings.game}
     </Link>
     <Link className="profileLink" to="/profile">
-      Profile
+      {strings.profile}
     </Link>
     <Link className="signoutLink" to="/signout">
-      SignOut
+      {strings.signOut}
     </Link>
   </div>
 );
