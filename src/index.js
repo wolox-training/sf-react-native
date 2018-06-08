@@ -10,6 +10,7 @@ import store, { history } from './redux/store.js';
 import registerServiceWorker from './registerServiceWorker';
 import Game from './app/screens/Game';
 import LogIn from './app/screens/LogIn';
+import Profile from './app/screens/Profile';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -37,8 +38,6 @@ PrivateRoute.propTypes = {
   location: PropTypes.string
 };
 
-const Empty = () => <div>Empty Page</div>;
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
@@ -46,7 +45,7 @@ ReactDOM.render(
         <Route exact path="/" render={() => <Redirect to="/login" />} />
         <Route path="/login" component={LogIn} />
         <PrivateRoute path="/game" component={Game} />
-        <PrivateRoute path="/profile" component={Empty} />
+        <PrivateRoute path="/profile" component={Profile} />
       </Switch>
     </Router>
   </Provider>,
