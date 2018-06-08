@@ -16,6 +16,10 @@ export function reducer(state = defaultState, action) {
       const newState = { ...state, loading: false, err: action.payload.err };
       return newState;
     }
+    case actions.SIGN_OUT: {
+      const newState = { ...state, currentUser: null };
+      return newState;
+    }
     default:
       return state;
   }

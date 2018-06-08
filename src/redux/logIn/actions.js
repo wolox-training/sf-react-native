@@ -7,7 +7,8 @@ import { strings } from './strings';
 export const actions = {
   AUTH_USERS: 'AUTH_USERS',
   AUTH_USER_SUCCESS: 'AUTH_USER_SUCCESS',
-  AUTH_USER_FAILURE: 'AUTH_USER_FAILURE'
+  AUTH_USER_FAILURE: 'AUTH_USER_FAILURE',
+  SIGN_OUT: 'SIGN_OUT'
 };
 
 export const actionCreators = {
@@ -38,5 +39,10 @@ export const actionCreators = {
         payload: { err: response.problem }
       });
     }
+  },
+  signOut: () => dispatch => {
+    dispatch({ type: actions.SIGN_OUT });
+    localStorage.removeItem('token');
+    dispatch(push('/login'));
   }
 };
