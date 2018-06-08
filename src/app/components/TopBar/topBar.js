@@ -14,14 +14,14 @@ class TopBar extends Component {
 
   render() {
     return (
-      <div className="topBar">
-        <Link className="gameLink" to="/game">
+      <div className="top-bar">
+        <Link className="game-link" to="/game">
           {strings.game}
         </Link>
-        <Link className="profileLink" to="/profile">
+        <Link className="profile-link" to="/profile">
           {strings.profile}
         </Link>
-        <button className="signOutButton" onClick={this.handleClick}>
+        <button className="signOut-button" onClick={this.handleClick}>
           {strings.signOut}
         </button>
       </div>

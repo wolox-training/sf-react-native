@@ -1,4 +1,4 @@
-.logInPage {
+.logIn-page {
   display: flex;
   flex-flow: column;
   font-family: Helvetica Neue,Helvetica,Segoe UI,Arial,freesans,sans-serif;
@@ -7,7 +7,7 @@
   padding: 15px;
 }
 
-.logInFormTitle {
+.logIn-form-title {
   align-self: center;
   font-size: 2rem;
   font-weight: 700;
@@ -15,7 +15,7 @@
   margin: 20px 0;
 }
 
-.formStyle {
+.form-style {
   border: 0;
   box-sizing: border-box;
   font-size: 16px;
@@ -25,14 +25,14 @@
   padding: 0;
 }
 
-.formDiv {
+.form-div {
   display: flex;
   flex-flow: row;
   justify-content: center;
   margin: 10px 5px;
 }
 
-.formLabel {
+.form-label {
   font-weight: 700;
   margin-right: 10px;
   min-width: 100px;
@@ -40,7 +40,7 @@
   text-align: right;
 }
 
-.formFieldDiv {
+.form-field-div {
   display: flex;
   flex-flow: column;
   font-size: 16px;
@@ -49,13 +49,13 @@
   position: relative;
 }
 
-.formFieldError {
+.form-field-error {
   border: none;
   font-weight: 500;
   color: #700;
 }
 
-.formButton {
+.form-button {
   background-image: linear-gradient(#4f93ce,#285f8f);
   border: 1px solid #285f8f;
   border-radius: 5px;
@@ -67,7 +67,7 @@
   white-space: nowrap;
 }
 
-.formButton[disabled] {
+.form-button[disabled] {
   cursor: not-allowed;
   opacity: .6;
 }
