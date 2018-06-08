@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -16,11 +16,11 @@ class Profile extends Component {
     const profile = this.props.userProfile;
     const error = this.props.error;
     return (
-      <Fragment>
+      <div className="profile-div">
         <h2>{!error && strings.profileTitle}</h2>
         {!error && <ProfileView profile={profile} />}
         {error && <span className="profile-error">{strings.error}</span>}
-      </Fragment>
+      </div>
     );
   }
 }
