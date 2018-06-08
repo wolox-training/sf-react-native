@@ -1,6 +1,6 @@
 import { actions } from './actions.js';
 
-const defaultState = { loading: false, currentUser: null, err: null};
+const defaultState = { loading: false, currentUser: null, err: null };
 
 export function reducer(state = defaultState, action) {
   switch (action.type) {
@@ -14,6 +14,10 @@ export function reducer(state = defaultState, action) {
     }
     case actions.AUTH_USER_FAILURE: {
       const newState = { ...state, loading: false, err: action.payload.err };
+      return newState;
+    }
+    case actions.SIGN_OUT: {
+      const newState = { ...state, currentUser: null };
       return newState;
     }
     default:

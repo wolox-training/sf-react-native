@@ -9,7 +9,7 @@ import { strings } from './strings.js';
 import { renderField } from './components/renderField.js';
 
 const LogInForm = ({ handleSubmit, pristine, reset, submitting }) => (
-  <form className="formStyle" onSubmit={handleSubmit}>
+  <form className="form-style" onSubmit={handleSubmit}>
     <Field
       name="email"
       type="email"
@@ -24,11 +24,11 @@ const LogInForm = ({ handleSubmit, pristine, reset, submitting }) => (
       label={strings.passwordLabel}
       validate={[required, passwordLength]}
     />
-    <div className="formDiv">
-      <button className="formButton" type="submit" disabled={submitting}>
+    <div className="form-div">
+      <button className="form-button" type="submit" disabled={submitting}>
         {strings.submitButton}
       </button>
-      <button className="formButton" type="button" disabled={pristine || submitting} onClick={reset}>
+      <button className="form-button" type="button" disabled={pristine || submitting} onClick={reset}>
         {strings.clearButton}
       </button>
     </div>

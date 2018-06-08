@@ -14,8 +14,8 @@ class LogIn extends Component {
 
   render() {
     return (
-      <div className="logInPage">
-        <h2 className="logInFormTitle">{strings.ticTacToeTitle}</h2>
+      <div className="logIn-page">
+        <h2 className="logIn-form-title">{strings.ticTacToeTitle}</h2>
         <LogInForm onSubmit={this.handleSubmit} />
       </div>
     );
