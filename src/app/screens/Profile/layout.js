@@ -6,6 +6,7 @@ import { strings } from './strings';
 
 const ProfileView = ({ profile }) => (
   <Fragment>
+    <h2>{strings.profileTitle}</h2>
     <div className="field-div">
       <img
         className="profile-image"

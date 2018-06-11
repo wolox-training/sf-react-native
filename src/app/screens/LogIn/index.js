@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { actionCreators } from '../../../redux/logIn/actions';
+import { withLoading } from '../../components/Loading/loading';
 
-import { strings } from './strings';
 import LogInForm from './layout.js';
 import './styles.css';
+
+const LogInFormWithLoading = withLoading(LogInForm);
 
 class LogIn extends Component {
   handleSubmit = values => {
@@ -15,15 +18,19 @@ class LogIn extends Component {
   render() {
     return (
       <div className="logIn-page">
-        <h2 className="logIn-form-title">{strings.ticTacToeTitle}</h2>
-        <LogInForm onSubmit={this.handleSubmit} />
+        <LogInFormWithLoading isLoading={this.props.loading} onSubmit={this.handleSubmit} />
       </div>
     );
   }
 }
 
+LogIn.propTypes = {
+  loading: PropTypes.bool.isRequired
+};
+
 const mapStateToProps = state => ({
-  error: state.auth.err
+  error: state.auth.err,
+  loading: state.auth.loading
 });
 
 export default connect(mapStateToProps)(LogIn);

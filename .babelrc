@@ -3,7 +3,7 @@
     "react-app"
   ],
   "plugins": [
-    ["module-resolver", {
+    ["emotion", "module-resolver", {
       "root": ["./src"],
       "alias": {
         "~components": "./src/app/components",
