@@ -30,7 +30,7 @@ class Profile extends Component {
 Profile.propTypes = {
   userProfile: PropTypes.node,
   error: PropTypes.string,
-  loading: PropTypes.bool
+  loading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
