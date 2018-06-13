@@ -5,7 +5,7 @@
 import { StackNavigator } from 'react-navigation';
 
 import * as Routes from '../constants/routes';
-import { stackNavConfig, screensNavOptions,  } from '../config/navigation';
+import { stackNavConfig, screensNavOptions } from '../config/navigation';
 
 import Home from './screens/Home';
 
