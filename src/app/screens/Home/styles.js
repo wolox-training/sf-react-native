@@ -5,7 +5,7 @@ import { green } from '../../../constants/colors';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'space-between'
   },
   mainButton: {

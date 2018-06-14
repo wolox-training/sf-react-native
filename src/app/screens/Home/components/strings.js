@@ -1,3 +1,4 @@
 export const strings = {
-  footerText: 'Remove completed items'
+  footerText: 'Remove completed items',
+  placeholder: 'Type a TODO, then hit enter!'
 };

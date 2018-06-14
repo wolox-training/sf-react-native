@@ -9,7 +9,7 @@ const api = create({
 });
 
 api.addMonitor(Reactotron.apisauce);
-
+// eslint-disable-next-line
 export const apiSetup = dispatch => {
   // eslint-disable-line no-unused-vars, prettier/prettier
   if (baseURL === 'http://wolox.com') {

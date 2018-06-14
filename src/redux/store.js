@@ -10,10 +10,13 @@ import { fetchMiddleware } from 'redux-recompose';
 import { ROOT } from '../constants/platform';
 import Navigator from '../app/screens';
 
+import { reducer as todoList } from './TODOList/reducer';
+
 const nav = createNavigationReducer(Navigator);
 
 const reducers = combineReducers({
-  nav
+  nav,
+  todoList
 });
 
 const middlewares = [];
