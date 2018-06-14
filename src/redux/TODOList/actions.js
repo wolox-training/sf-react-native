@@ -1,7 +1,8 @@
 export const actions = {
   ADD_ITEM: 'ADD_ITEM',
   REMOVE_ITEM: 'REMOVE_ITEM',
-  TOGGLE_ITEM_COMPLETED: 'TOGGLE_ITEM_COMPLETED'
+  TOGGLE_ITEM_COMPLETED: 'TOGGLE_ITEM_COMPLETED',
+  REMOVE_COMPLETED_ITEMS: 'REMOVE_COMPLETED_ITEMS'
 };
 
 export const actionCreators = {
@@ -22,5 +23,8 @@ export const actionCreators = {
       type: actions.TOGGLE_ITEM_COMPLETED,
       payload: { index }
     });
+  },
+  removeCompletedItems: () => dispatch => {
+    dispatch({ type: actions.REMOVE_COMPLETED_ITEMS });
   }
 };

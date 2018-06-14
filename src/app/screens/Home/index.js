@@ -24,6 +24,10 @@ class Home extends Component {
     this.props.dispatch(actionCreators.toggleItemCompleted(index));
   };
 
+  removeCompletedItems = () => {
+    this.props.dispatch(actionCreators.removeCompletedItems());
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -35,7 +39,7 @@ class Home extends Component {
             onToggleItemCompleted={this.toggleItemCompleted}
           />
         </View>
-        <Footer />
+        <Footer onRemoveCompleted={this.removeCompletedItems} />
       </View>
     );
   }

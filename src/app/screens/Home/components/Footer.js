@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
 import CustomText from '../../../components/CustomText';
 import { red } from '../../../../constants/colors';
@@ -18,10 +19,14 @@ const styles = StyleSheet.create({
   }
 });
 
-export default function Footer() {
+export default function Footer(props) {
   return (
-    <TouchableOpacity style={styles.footer}>
+    <TouchableOpacity style={styles.footer} onPress={props.onRemoveCompleted}>
       <CustomText style={styles.remove}>{strings.footerText}</CustomText>
     </TouchableOpacity>
   );
 }
+
+Footer.propTypes = {
+  onRemoveCompleted: PropTypes.func
+};

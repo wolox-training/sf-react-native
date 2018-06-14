@@ -33,6 +33,10 @@ export function reducer(state = initialState, action) {
       };
       return newState;
     }
+    case actions.REMOVE_COMPLETED_ITEMS: {
+      const newState = { ...state, todos: todos.filter(item => !item.completed) };
+      return newState;
+    }
     default:
       return state;
   }
