@@ -12,16 +12,28 @@ import Footer from './components/Footer';
 import styles from './styles';
 
 class Home extends Component {
-  onAddItem = item => {
+  addItem = item => {
     this.props.dispatch(actionCreators.addItem(item));
+  };
+
+  removeItem = index => {
+    this.props.dispatch(actionCreators.removeItem(index));
+  };
+
+  toggleItemCompleted = index => {
+    this.props.dispatch(actionCreators.toggleItemCompleted(index));
   };
 
   render() {
     return (
       <View style={styles.container}>
         <View>
-          <Input placeholder={strings.placeholder} onSubmitEditing={this.onAddItem} />
-          <List list={this.props.todos} />
+          <Input placeholder={strings.placeholder} onSubmitEditing={this.addItem} />
+          <List
+            list={this.props.todos}
+            onRemoveItem={this.removeItem}
+            onToggleItemCompleted={this.toggleItemCompleted}
+          />
         </View>
         <Footer />
       </View>
@@ -30,7 +42,12 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.string)
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      completed: PropTypes.bool
+    })
+  )
 };
 
 const mapStateToProps = state => ({

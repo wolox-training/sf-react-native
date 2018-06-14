@@ -33,6 +33,7 @@ export default class Input extends Component {
         placeholder={this.props.placeholder}
         onChangeText={this.onChangeText}
         onSubmitEditing={this.onSubmitEditing}
+        blurOnSubmit={false}
       />
     );
   }
