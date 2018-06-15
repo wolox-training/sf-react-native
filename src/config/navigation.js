@@ -30,13 +30,14 @@ export const screensNavOptions = {
   // TODO: Add here the screens nav options that changes with respect to
   // the default ones defined in defaultNavOptions, for example...
   [Routes.Home]: {
+    title: 'Training App'
+  },
+  [Routes.Todo]: {
     title: 'TODO List'
+  },
+  [Routes.Books]: {
+    title: 'Books'
   }
-  /*
-  [Routes.Login]: {
-    header: null
-  }
-  */
 };
 
 export const stackNavConfig = {

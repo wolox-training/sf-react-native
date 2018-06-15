@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { TextInput } from 'react-native';
 import PropTypes from 'prop-types';
 
-const styles = StyleSheet.create({
-  input: {
-    padding: 15,
-    height: 50
-  }
-});
+import { inputStyle as styles } from './styles';
 
 export default class Input extends Component {
   state = {
@@ -41,5 +36,5 @@ export default class Input extends Component {
 
 Input.propTypes = {
   placeholder: PropTypes.string,
-  onSubmitEditing: PropTypes.func
+  onSubmitEditing: PropTypes.func.isRequired
 };

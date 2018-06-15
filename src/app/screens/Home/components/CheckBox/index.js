@@ -1,20 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
-const styles = StyleSheet.create({
-  box: {
-    height: 20,
-    width: 20,
-    borderWidth: 2,
-    borderColor: 'black'
-  },
-  inner: {
-    flex: 1,
-    margin: 2,
-    backgroundColor: 'rgba(0,0,0,0.8)'
-  }
-});
+import { checkboxStyle as styles } from './styles';
 
 export default function Checkbox(props) {
   return (
@@ -25,6 +13,6 @@ export default function Checkbox(props) {
 }
 
 Checkbox.propTypes = {
-  onToggle: PropTypes.func,
+  onToggle: PropTypes.func.isRequired,
   isChecked: PropTypes.bool
 };

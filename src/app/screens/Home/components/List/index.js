@@ -1,34 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { red } from '../../../../constants/colors';
+import { strings } from '../strings';
+import Checkbox from '../CheckBox';
+import CustomText from '../../../../components/CustomText';
+import CustomButton from '../../../../components/CustomButton';
 
-import Checkbox from './Checkbox';
-
-const styles = StyleSheet.create({
-  item: {
-    padding: 15,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: 'whitesmoke'
-  },
-  rightSection: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  remove: {
-    marginLeft: 10,
-    marginBottom: 2,
-    color: red,
-    fontSize: 26
-  },
-  completed: {
-    backgroundColor: 'whitesmoke'
-  }
-});
+import { listStyle as styles } from './styles';
 
 export default class List extends Component {
   renderItem = (item, i) => {
@@ -37,12 +16,16 @@ export default class List extends Component {
 
     return (
       <View key={i} style={itemStyle}>
-        <Text> {item.label} </Text>
+        <CustomText> {item.label} </CustomText>
         <View style={styles.rightSection}>
           <Checkbox isChecked={item.completed} onToggle={() => onToggleItemCompleted(i)} />
-          <TouchableOpacity onPress={() => onRemoveItem(i)}>
-            <Text style={styles.remove}> &times; </Text>
-          </TouchableOpacity>
+          <CustomButton
+            onPress={() => onRemoveItem(i)}
+            title={strings.times}
+            textStyle={styles.remove}
+            big
+            center
+          />
         </View>
       </View>
     );
