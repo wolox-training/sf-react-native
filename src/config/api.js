@@ -1,7 +1,7 @@
 import Reactotron from 'reactotron-react-native';
 import { create } from 'apisauce';
 
-const baseURL = 'http://wolox.com';
+const baseURL = ' http://192.168.122.1:3005';
 
 const api = create({
   baseURL,
@@ -13,7 +13,7 @@ api.addMonitor(Reactotron.apisauce);
 export const apiSetup = dispatch => {
   // eslint-disable-line no-unused-vars, prettier/prettier
   if (baseURL === 'http://wolox.com') {
-    // console.warn('API baseURL has not been properly initialized');
+    console.warn('API baseURL has not been properly initialized');
   }
 
   api.addMonitor(response => {

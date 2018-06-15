@@ -1,20 +1,42 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import CustomText from '../../components/CustomText';
+import { actionCreators } from '../../../redux/Books/actions';
 
-import styles from './styles';
+import BooksList from './layout';
+import { containerStyle as styles } from './styles';
 
-// eslint-disable-next-line
 class Books extends Component {
+  componentDidMount() {
+    this.props.dispatch(actionCreators.getBooks());
+  }
   render() {
     return (
       <View style={styles.container}>
-        <CustomText>Books List</CustomText>
+        <BooksList booksList={this.props.books} />
       </View>
     );
   }
 }
 
-export default connect()(Books);
+Books.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      author: PropTypes.string,
+      title: PropTypes.string,
+      genre: PropTypes.string,
+      publisher: PropTypes.string,
+      year: PropTypes.number,
+      image_url: PropTypes.string
+    })
+  ).isRequired
+};
+
+const mapStateToProps = state => ({
+  books: state.books.booksList
+});
+
+export default connect(mapStateToProps)(Books);
