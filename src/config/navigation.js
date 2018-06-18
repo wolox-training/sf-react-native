@@ -37,6 +37,9 @@ export const screensNavOptions = {
   },
   [Routes.Books]: {
     title: 'Books'
+  },
+  [Routes.BookDetails]: {
+    title: 'Book Details'
   }
 };
 

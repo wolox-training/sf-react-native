@@ -15,7 +15,7 @@ class Books extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <BooksList booksList={this.props.books} />
+        <BooksList booksList={this.props.books} navigator={this.props.navigation} />
       </View>
     );
   }
@@ -29,10 +29,11 @@ Books.propTypes = {
       title: PropTypes.string,
       genre: PropTypes.string,
       publisher: PropTypes.string,
-      year: PropTypes.number,
+      year: PropTypes.string,
       image_url: PropTypes.string
     })
-  ).isRequired
+  ).isRequired,
+  navigation: PropTypes.func
 };
 
 const mapStateToProps = state => ({

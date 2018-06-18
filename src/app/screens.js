@@ -9,6 +9,7 @@ import { stackNavConfig, screensNavOptions } from '../config/navigation';
 
 import Home from './screens/Home';
 import Books from './screens/Books';
+import BookDetails from './screens/BookDetails';
 
 export default StackNavigator(
   {
@@ -24,6 +25,10 @@ export default StackNavigator(
         }
       }),
       navigationOptions: screensNavOptions[Routes.Home]
+    },
+    [Routes.BookDetails]: {
+      screen: BookDetails,
+      navigationOptions: screensNavOptions[Routes.BookDetails]
     }
   },
   stackNavConfig
