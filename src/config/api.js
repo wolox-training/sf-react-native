@@ -1,7 +1,7 @@
 import Reactotron from 'reactotron-react-native';
 import { create } from 'apisauce';
 
-const baseURL = 'http://192.168.122.1:3005';
+const baseURL = process.env.API_BASE_URL;
 
 const api = create({
   baseURL,
